@@ -1,14 +1,16 @@
 <template>
-  <hello-world />
+  <v-app>
+    <Favorites></Favorites>
+  </v-app>
 </template>
-
-<script>
-import HelloWorld from '@/components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: { HelloWorld }
-}
+<script lang="ts">
+import Vue from 'vue'
+import Favorites from '@/views/Favorites.vue'
+export default Vue.extend({
+  components: {
+    Favorites
+  }
+})
 </script>
 
 <style>

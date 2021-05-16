@@ -1,11 +1,11 @@
 {
-  "extName": {
-    "message": "NekoToolbox"
+  "name": {
+    "message": "猫猫工具箱"
   },
   "description": {
-    "message": "NekoToolbox Chrome Extension"
+    "message": "猫猫工具箱 Chrome 插件"
   },
   "popupTitle": {
-    "message": "NekoToolbox - Favorite tools"
+    "message": "猫猫工具箱 - 收藏夹"
   }
 }

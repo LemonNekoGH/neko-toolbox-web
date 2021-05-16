@@ -1,6 +1,11 @@
 {
-  "extName": {
-    "message": "neko-toolbox-web",
-    "description": ""
+  "name": {
+    "message": "NekoToolbox"
+  },
+  "description": {
+    "message": "NekoToolbox Chrome Extension"
+  },
+  "popupTitle": {
+    "message": "NekoToolbox - Favorite tools"
   }
 }
