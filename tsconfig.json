@@ -15,7 +15,8 @@
     "types": [
       "webpack-env",
       "vuetify",
-      "chrome"
+      "chrome",
+      "firefox-webext-browser"
     ],
     "paths": {
       "@/*": [

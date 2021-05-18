@@ -5,20 +5,24 @@
   "scripts": {
     "serve": "tsc && vue-cli-service build --mode development --watch",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\""
   },
   "dependencies": {
-    "@mdi/font": "5.9.55",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "localforage": "^1.9.0",
     "roboto-fontface": "*",
     "vue": "^2.6.11",
+    "vue-i18n": "^8.22.3",
     "vue-router": "^3.2.0",
     "vuetify": "^2.4.0",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@intlify/vue-i18n-loader": "^1.0.0",
     "@types/chrome": "^0.0.140",
+    "@types/firefox-webext-browser": "^82.0.0",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -40,8 +44,10 @@
     "less-loader": "^5.0.0",
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
+    "ts-loader": "^9.1.2",
     "typescript": "~4.1.5",
     "vue-cli-plugin-browser-extension": "latest",
+    "vue-cli-plugin-i18n": "~2.1.0",
     "vue-cli-plugin-vuetify": "~2.4.0",
     "vue-template-compiler": "^2.6.11",
     "vuetify-loader": "^1.7.0"
