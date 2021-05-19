@@ -9,5 +9,5 @@ import Vue from 'vue'
 export default Vue.extend()
 </script>
 
-<style>
+<style lang="less" src="../App.less">
 </style>

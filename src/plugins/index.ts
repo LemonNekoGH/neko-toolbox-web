@@ -1,10 +1,12 @@
 import Vuetify from 'vuetify'
 import VueI18n from 'vue-i18n'
 import zh from '@/locales/zh'
-import Home from '@/views/Home.vue'
 import VueRouter from 'vue-router'
 import store from './store'
 import Vue from 'vue'
+
+import Home from '@/views/Home.vue'
+import Settings from '@/views/Settings.vue'
 
 Vue.use(Vuetify)
 Vue.use(VueI18n)
@@ -38,6 +40,11 @@ const routes = [
     path: '/favorites',
     name: 'Favorites',
     component: () => import(/* webpackChunkName: "favorites" */ '../views/Favorites.vue')
+  },
+  {
+    path: '/settings',
+    name: 'Settings',
+    component: Settings
   }
 ]
 

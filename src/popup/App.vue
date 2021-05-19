@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Favorites></Favorites>
+    <Favorites in-popup="true"></Favorites>
   </v-app>
 </template>
 <script lang="ts">
