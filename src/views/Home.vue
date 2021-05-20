@@ -1,11 +1,10 @@
 <template>
-  <v-app>
-    <Header :title="$t('basic.title')"></Header>
-  </v-app>
+  <v-main>Home</v-main>
 </template>
-<script>
-import Header from '@/components/Header'
-export default {
-  components: { Header }
-}
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  components: {}
+})
 </script>

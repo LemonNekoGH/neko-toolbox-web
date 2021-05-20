@@ -1,14 +1,16 @@
 <template>
   <v-app>
-    <Settings in-options="true"></Settings>
+    <Header in-options="true"></Header>
+    <Settings></Settings>
   </v-app>
 </template>
 
 <script>
 import Settings from '@/views/Settings'
+import Header from '@/components/Header'
 
 export default {
   name: 'App',
-  components: { Settings }
+  components: { Header, Settings }
 }
 </script>

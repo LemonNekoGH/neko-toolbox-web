@@ -1,20 +1,29 @@
 <template>
   <v-app-bar app flat color="primary" dark>
-    <v-app-bar-nav-icon v-if="!inPopup && $route.path !=='/'" @click="$router.back()">
-      <v-icon>mdi-arrow-left</v-icon>
-    </v-app-bar-nav-icon>
     <v-btn text>
-      <v-app-bar-title>{{ $t('basic.title') }}</v-app-bar-title>
+      <v-app-bar-title>{{ title }}</v-app-bar-title>
     </v-btn>
     <div class="width-10px"></div>
-    <v-btn :color="favoriteColor()" elevation="0" @click="$router.push('/favorites')" v-if="!inPopup && !inOptions">
-      <v-icon left >mdi-folder-star</v-icon>
-      收藏夹
+    <v-tabs v-if="!inPopup && !inOptions">
+      <v-tab to="/">
+        <v-icon left>mdi-home</v-icon>
+        {{ $t('home.title') }}
+      </v-tab>
+      <v-tab to="/favorites">
+        <v-icon left>mdi-folder-star</v-icon>
+        {{ $t('favorites.title') }}
+      </v-tab>
+      <v-tab to="/settings">
+        <v-icon left>mdi-cog</v-icon>
+        {{ $t('settings.title') }}
+      </v-tab>
+    </v-tabs>
+    <v-spacer v-if="inPopup"></v-spacer>
+    <v-btn v-if="inPopup" icon @click="goUrl('index.html')">
+      <v-icon>mdi-home</v-icon>
     </v-btn>
-    <div class="width-10px"></div>
-    <v-btn :color="settingsColor()" elevation="0" @click="goSetting" v-if="!inPopup && !inOptions">
-      <v-icon left>mdi-cog</v-icon>
-      设置
+    <v-btn v-if="inPopup" icon @click="goUrl('options.html')">
+      <v-icon>mdi-cog</v-icon>
     </v-btn>
   </v-app-bar>
 </template>
@@ -23,10 +32,6 @@ import Vue from 'vue'
 
 export default Vue.extend({
   props: {
-    title: {
-      type: String,
-      required: true
-    },
     inPopup: {
       type: Boolean,
       required: false,
@@ -38,21 +43,20 @@ export default Vue.extend({
       default: false
     }
   },
-  methods: {
-    goSetting () {
+  computed: {
+    title () {
       if (this.inPopup) {
-        browser.tabs.create({
-          url: 'options.html'
-        })
+        return this.$t('favorites.title')
       } else {
-        this.$router.push('/settings')
+        return this.$t('basic.title')
       }
-    },
-    favoriteColor () {
-      return this.$route.path === '/favorites' ? '#c75b39' : '#ff8a65'
-    },
-    settingsColor () {
-      return this.$route.path === '/settings' ? '#c75b39' : '#ff8a65'
+    }
+  },
+  methods: {
+    goUrl (url: string) {
+      browser.tabs.create({
+        url: url
+      })
     }
   }
 })

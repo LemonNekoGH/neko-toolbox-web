@@ -7,7 +7,7 @@
   "permissions": [
     "activeTab",
     "storage",
-    "tab",
+    "tabs",
     "<all_urls>",
     "*://*/*"
   ],
@@ -28,8 +28,5 @@
   "options_ui": {
     "page": "options.html",
     "browser_style": true
-  },
-  "chrome_url_overrides": {
-    "newtab": "override.html"
   }
 }
