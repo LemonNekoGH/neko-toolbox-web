@@ -14,10 +14,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - name: Install Dependencies
-        uses: borales/actions-yarn@v2.0.0
+      - name: Cache NPM dependencies
+        uses: actions/cache@v2
         with:
-          cmd: install
+          path: node_modules
+          key: ${{ runner.OS }}-npm-cache
+          restore-keys: |
+            ${{ runner.OS }}-npm-cache
+      - name: Install Dependencies
+        run: yarn install
       - name: Build
         run: yarn build:ci
       - name: Deploy
