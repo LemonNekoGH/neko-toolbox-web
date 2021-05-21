@@ -1,9 +1,11 @@
 import Vuetify from 'vuetify'
 import VueI18n from 'vue-i18n'
-import zh from '@/locales/zh'
 import VueRouter from 'vue-router'
 import store from './store'
 import Vue from 'vue'
+
+import zh from '@/locales/zh'
+import en from '@/locales/en'
 
 import Home from '@/views/Home.vue'
 import Settings from '@/views/Settings.vue'
@@ -26,7 +28,7 @@ const i18n = new VueI18n({
   locale: process.env.VUE_APP_I18N_LOCALE || 'en',
   fallbackLocale: process.env.VUE_APP_I18N_LOCALE || 'en',
   messages: {
-    zh
+    zh, en
   }
 })
 

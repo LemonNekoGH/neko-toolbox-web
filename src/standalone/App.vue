@@ -5,10 +5,10 @@
   </v-app>
 </template>
 <script lang="ts">
-import Vue from 'vue'
 import Header from '@/components/Header.vue'
+import { HookedVue } from '@/utils/util'
 
-export default Vue.extend({
+export default HookedVue.extend({
   components: {
     Header
   }

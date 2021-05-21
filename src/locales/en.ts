@@ -1,16 +1,16 @@
 export default {
   basic: {
-    title: '猫猫工具箱'
+    title: 'NekoToolbox'
   },
   home: {
-    title: '主页'
+    title: 'Home'
   },
   favorites: {
-    title: '收藏夹'
+    title: 'Favorites'
   },
   settings: {
-    title: '设置',
-    language: '语言',
+    title: 'Settings',
+    language: 'Language',
     zh: '简体中文',
     en: 'English'
   }
