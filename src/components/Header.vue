@@ -1,9 +1,7 @@
 <template>
   <v-app-bar app flat color="primary" dark>
-    <v-btn text>
-      <v-app-bar-title>{{ title }}</v-app-bar-title>
-    </v-btn>
-    <div class="width-10px"></div>
+    <v-app-bar-title>{{ title }}</v-app-bar-title>
+    <v-spacer></v-spacer>
     <v-tabs v-if="!inPopup && !inOptions">
       <v-tab to="/">
         <v-icon left>mdi-home</v-icon>
@@ -61,3 +59,15 @@ export default Vue.extend({
   }
 })
 </script>
+<style lang="less">
+.v-tabs {
+  flex: unset!important;
+  width: unset!important;
+}
+.v-tab {
+  text-transform: unset!important;
+}
+.v-app-bar-title__content {
+  width: unset!important;
+}
+</style>

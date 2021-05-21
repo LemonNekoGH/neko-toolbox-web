@@ -1,4 +1,5 @@
 module.exports = {
+  publicPath: './',
   pages: {
     popup: {
       template: 'public/popup.html',
