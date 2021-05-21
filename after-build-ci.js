@@ -1,5 +1,5 @@
 const rimraf = require('rimraf')
-const fs = require('fs/promises')
+const fs = require('fs')
 
 rimraf.sync('./dist/_locales')
 rimraf.sync('./dist/icons')
@@ -9,4 +9,6 @@ rimraf.sync('./dist/override.html')
 rimraf.sync('./dist/popup.html')
 rimraf.sync('./dist/manifest.json')
 
-fs.appendFile('./dist/CNAME', 'toolbox.lemonneko.moe').then()
+fs.appendFile('./dist/CNAME', 'toolbox.lemonneko.moe', () => {
+  console.log('CI script ran successfully.')
+})
