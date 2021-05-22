@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev": "tsc && vue-cli-service serve",
     "serve": "tsc && vue-cli-service build --mode development --watch",
     "build": "tsc && vue-cli-service build",
     "build:ci": "tsc && vue-cli-service build && node after-build-ci.js",

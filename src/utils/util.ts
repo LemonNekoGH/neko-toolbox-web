@@ -68,3 +68,9 @@ export const HookedVue = Vue.extend({
     })
   }
 })
+
+export class TypeCast {
+  static stringToBoolean (str: string): boolean {
+    return str === 'true'
+  }
+}

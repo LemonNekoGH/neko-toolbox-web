@@ -13,5 +13,8 @@ export default {
     language: '语言',
     zh: '简体中文',
     en: 'English'
+  },
+  httpClient: {
+    title: 'HTTP 客户端'
   }
 }

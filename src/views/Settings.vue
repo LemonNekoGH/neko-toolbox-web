@@ -1,31 +1,29 @@
 <template>
   <v-main>
     <v-container>
-      <v-row justify="center">
-        <v-col lg="6">
-          <v-card outlined>
-            <v-list>
-              <!--language setting-->
-              <v-list-item>
-                <v-list-item-content>
-                  <v-list-item-title>{{ $t('settings.language') }}</v-list-item-title>
-                </v-list-item-content>
-                  <v-menu>
-                    <template #activator="{ attr, on }">
-                      <v-btn class="text-no-uppercase" text v-on="on" v-bind="attr">
-                        {{ $t('settings.' + $i18n.locale) }}
-                        <v-icon right>mdi-chevron-down</v-icon>
-                      </v-btn>
-                    </template>
-                    <v-list>
-                      <v-list-item @click="setLanguage(lang)" v-for="(lang, index) in languages" :key="index">{{ $t('settings.' + lang) }}</v-list-item>
-                    </v-list>
-                  </v-menu>
-              </v-list-item>
-            </v-list>
-          </v-card>
-        </v-col>
-      </v-row>
+      <v-card outlined>
+        <v-list>
+          <!--language setting-->
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>{{ $t('settings.language') }}</v-list-item-title>
+            </v-list-item-content>
+            <v-menu>
+              <template #activator="{ attr, on }">
+                <v-btn class="text-no-uppercase" text v-on="on" v-bind="attr">
+                  {{ $t('settings.' + $i18n.locale) }}
+                  <v-icon right>mdi-chevron-down</v-icon>
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item @click="setLanguage(lang)" v-for="(lang, index) in languages" :key="index">
+                  {{ $t('settings.' + lang) }}
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </v-list-item>
+        </v-list>
+      </v-card>
     </v-container>
   </v-main>
 </template>

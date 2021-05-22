@@ -9,6 +9,7 @@ import en from '@/locales/en'
 
 import Home from '@/views/Home.vue'
 import Settings from '@/views/Settings.vue'
+import HttpClient from '@/views/HttpClient.vue'
 
 Vue.use(Vuetify)
 Vue.use(VueI18n)
@@ -47,6 +48,11 @@ const routes = [
     path: '/settings',
     name: 'Settings',
     component: Settings
+  },
+  {
+    path: '/http-client',
+    name: 'HttpClient',
+    component: HttpClient
   }
 ]
 
