@@ -10,6 +10,7 @@ import en from '@/locales/en'
 import Home from '@/views/Home.vue'
 import Settings from '@/views/Settings.vue'
 import HttpClient from '@/views/HttpClient.vue'
+import Favorites from '@/views/Favorites.vue'
 
 Vue.use(Vuetify)
 Vue.use(VueI18n)
@@ -42,7 +43,7 @@ const routes = [
   {
     path: '/favorites',
     name: 'Favorites',
-    component: () => import(/* webpackChunkName: "favorites" */ '../views/Favorites.vue')
+    component: Favorites
   },
   {
     path: '/settings',
