@@ -10,7 +10,11 @@
             </v-list-item-content>
             <v-menu>
               <template #activator="{ attr, on }">
-                <v-btn class="text-no-uppercase" text v-on="on" v-bind="attr">
+                <v-btn
+                  class="text-no-uppercase"
+                  text
+                  v-on="on"
+                  v-bind="attr">
                   {{ $t('settings.' + $i18n.locale) }}
                   <v-icon right>mdi-chevron-down</v-icon>
                 </v-btn>

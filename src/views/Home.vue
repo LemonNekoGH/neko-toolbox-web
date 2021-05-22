@@ -2,18 +2,42 @@
   <v-main>
     <v-container>
       <div class="tools-grid">
-        <v-card outlined v-for="(tool, index) in toolsPinnedFirst" :key="index" @click="$router.push(tool.to)">
-          <v-app-bar flat color="white">
+        <v-card
+          outlined
+          v-for="(tool, index) in toolsPinnedFirst"
+          :key="index"
+          @click="$router.push(tool.to)">
+          <v-app-bar
+            flat
+            color="white">
             <v-app-bar-title>
               {{ $t(tool.title) }}
             </v-app-bar-title>
-            <v-spacer></v-spacer>
-            <v-btn icon @click.stop="setPinned(tool.to, !tool.isPinned)">
-              <v-icon>{{ tool.isPinned ? 'mdi-pin' : 'mdi-pin-outline' }}</v-icon>
-            </v-btn>
-            <v-btn icon @click.stop="setFavorite(tool.to, !tool.isFavorite)">
-              <v-icon>{{ tool.isFavorite ? 'mdi-star' : 'mdi-star-outline' }}</v-icon>
-            </v-btn>
+            <v-spacer />
+            <v-tooltip>
+              <template #activator="{ attr, on }">
+                <v-btn
+                  icon
+                  @click.stop="setPinned(tool.to, !tool.isPinned)"
+                  v-bind="attr"
+                  v-on="on">
+                  <v-icon>{{ tool.isPinned ? 'mdi-pin' : 'mdi-pin-outline' }}</v-icon>
+                </v-btn>
+              </template>
+              {{ tool.isPinned ? $t('basic.unPin') : $t('basic.pin') }}
+            </v-tooltip>
+            <v-tooltip>
+              <template #activator="{ attr, on }">
+                <v-btn
+                  v-bind="attr"
+                  v-on="on"
+                  icon
+                  @click.stop="setFavorite(tool.to, !tool.isFavorite)">
+                  <v-icon>{{ tool.isFavorite ? 'mdi-star' : 'mdi-star-outline' }}</v-icon>
+                </v-btn>
+              </template>
+              {{ tool.isFavorite ? $t('basic.removeFromFavorites') : $t('basic.addToFavorites') }}
+            </v-tooltip>
           </v-app-bar>
         </v-card>
       </div>

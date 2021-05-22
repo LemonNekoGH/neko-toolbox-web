@@ -1,6 +1,10 @@
 <template>
   <div>
-    <v-app-bar app flat color="primary" dark>
+    <v-app-bar
+      app
+      flat
+      color="primary"
+      dark>
       <v-app-bar-nav-icon v-if="$vuetify.breakpoint.mobile" @click="drawerOpen = true">
         <v-icon>mdi-menu</v-icon>
       </v-app-bar-nav-icon>
@@ -22,7 +26,12 @@
     </v-app-bar>
     <v-navigation-drawer v-model="drawerOpen" app v-if="$vuetify.breakpoint.mobile">
       <v-list nav dense>
-        <v-list-item v-for="(item, index) in navList" link :to="item.to" :key="index" color="primary">
+        <v-list-item
+          v-for="(item, index) in navList"
+          link
+          :to="item.to"
+          :key="index"
+          color="primary">
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
