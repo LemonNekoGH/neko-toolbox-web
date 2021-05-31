@@ -18,7 +18,7 @@
               <template #activator="{ attr, on }">
                 <v-btn
                   icon
-                  @click.stop="setPinned(tool.to, !tool.isPinned)"
+                  @click.stop="tool.setPinned(!tool.isPinned)"
                   v-bind="attr"
                   v-on="on">
                   <v-icon>{{ tool.isPinned ? 'mdi-pin' : 'mdi-pin-outline' }}</v-icon>
@@ -32,7 +32,7 @@
                   v-bind="attr"
                   v-on="on"
                   icon
-                  @click.stop="setFavorite(tool.to, !tool.isFavorite)">
+                  @click.stop="tool.setFavorite(!tool.isFavorite)">
                   <v-icon>{{ tool.isFavorite ? 'mdi-star' : 'mdi-star-outline' }}</v-icon>
                 </v-btn>
               </template>
@@ -46,12 +46,12 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import { Storage, TypeCast } from '@/utils/util'
+import { Storage, Tool, tools, TypeCast } from '@/utils/util'
 
 export default Vue.extend({
   computed: {
     toolsPinnedFirst () {
-      const tools: Array<{ to: string, title: string, isFavorite: boolean, isPinned: boolean }> = []
+      const tools: Tool[] = []
       this.tools.forEach((it) => {
         if (it.isFavorite || it.isPinned) {
           tools.push(it)
@@ -67,33 +67,14 @@ export default Vue.extend({
   },
   data () {
     return {
-      tools: [
-        { to: '/http-client', title: 'httpClient.title', isFavorite: false, isPinned: false }
-      ]
+      tools
     }
   },
   mounted () {
     this.initData()
+    document.title = `${this.$t('basic.title')}`
   },
   methods: {
-    setFavorite (to: string, isFavorite: boolean) {
-      for (const it of this.tools) {
-        if (it.to === to) {
-          it.isFavorite = isFavorite
-          break
-        }
-      }
-      Storage.setItem(`${to}:isFavorite`, String(isFavorite))
-    },
-    setPinned (to: string, isPinned: boolean) {
-      for (const it of this.tools) {
-        if (it.to === to) {
-          it.isPinned = isPinned
-          break
-        }
-      }
-      Storage.setItem(`${to}:isPinned`, String(isPinned))
-    },
     initData () {
       this.tools.forEach(async (it) => {
         it.isFavorite = TypeCast.stringToBoolean(await Storage.getItem(`${it.to}:isFavorite`, 'false'))
@@ -107,5 +88,6 @@ export default Vue.extend({
 .tools-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
 }
 </style>

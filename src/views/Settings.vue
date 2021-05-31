@@ -50,6 +50,9 @@ export default Vue.extend({
         console.log(e)
       }
     }
+  },
+  mounted () {
+    document.title = `${this.$t('basic.title')} - ${this.$t('settings.title')}`
   }
 })
 </script>

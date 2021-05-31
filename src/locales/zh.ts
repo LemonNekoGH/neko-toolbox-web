@@ -10,7 +10,8 @@ export default {
     title: '主页'
   },
   favorites: {
-    title: '收藏夹'
+    title: '收藏夹',
+    noFavorites: '没有加入收藏夹的工具'
   },
   settings: {
     title: '设置',

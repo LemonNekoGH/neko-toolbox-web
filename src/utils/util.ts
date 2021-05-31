@@ -63,7 +63,6 @@ export class Storage {
 export const HookedVue = Vue.extend({
   mounted () {
     Storage.getItem('app-lang', 'zh').then((lang) => {
-      console.log(lang)
       this.$i18n.locale = lang
     })
   }
@@ -74,3 +73,31 @@ export class TypeCast {
     return str === 'true'
   }
 }
+
+export class Tool {
+  to: string
+  title: string
+  isFavorite: boolean
+  isPinned: boolean
+
+  constructor (to: string, title: string, isFavorite: boolean, isPinned: boolean) {
+    this.to = to
+    this.isFavorite = isFavorite
+    this.isPinned = isPinned
+    this.title = title
+  }
+
+  setFavorite (isFavorite: boolean) {
+    this.isFavorite = isFavorite
+    Storage.setItem(`${this.to}:isFavorite`, String(isFavorite)).then()
+  }
+
+  setPinned (isPinned: boolean) {
+    this.isPinned = isPinned
+    Storage.setItem(`${this.to}:isPinned`, String(isPinned)).then()
+  }
+}
+
+export const tools: Tool[] = [
+  new Tool('/http-client', 'httpClient.title', false, false)
+]

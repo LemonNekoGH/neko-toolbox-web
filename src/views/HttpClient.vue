@@ -213,6 +213,9 @@ export default Vue.extend({
       requestHistory
     }
   },
+  mounted () {
+    document.title = `${this.$t('basic.title')} - ${this.$t('httpClient.title')}`
+  },
   methods: {
     setFavorite () {
       this.isFavorite = !this.isFavorite
